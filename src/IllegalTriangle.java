@@ -1,23 +1,23 @@
-import java.util.Scanner;
+public class IllegalTriangle {
+    private final int a, b, c;
 
-public class IllegalTriangle extends IllegalTriangleExeption {
-    public IllegalTriangle(String message, int perimeter, int area) {
-        super(message, perimeter, area);
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Nhập cạnh thứ 1: ");
-        int a = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập cạnh thứ 2: ");
-        int b = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập cạnh thứ 3: ");
-        int c = Integer.parseInt(scanner.nextLine());
-    }
-
-    public static void checkTriangle() {
-        try {
-            if ()
+    public IllegalTriangle(int a, int b, int c) throws IllegalTriangleException {
+        if (a < 0 || b < 0 || c < 0) {
+            throw new IllegalTriangleException("Cạnh không được nhỏ hơn 0!");
+        } else if (a + b <= c || a + c <= b || c + b <= a) {
+            throw new IllegalTriangleException("Tổng 2 cạnh phải lớn hơn cạnh còn lại!");
         }
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    @Override
+    public String toString() {
+        return "IllegalTriangle{" +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                '}';
     }
 }
